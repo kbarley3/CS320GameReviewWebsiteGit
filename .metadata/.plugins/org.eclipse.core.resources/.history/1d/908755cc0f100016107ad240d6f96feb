@@ -1,0 +1,38 @@
+package GameReview;
+
+import java.util.List;
+
+public class GameReviewController {
+	GameReviewModel model;
+	
+	public GameReviewController() {
+		 model = new GameReviewModel();
+	}
+	
+	public GameReviewModel getModel() {
+		return model;
+	}
+	
+	public List<Game> findAllGames() {
+		return model.getDb().findAllGames();
+	}
+	
+	public List<Game> findGameByName(String game){
+		return model.getDb().findGameByName(game);
+	}
+	
+	public List<Game> findGamesByGenre(String genre) {
+		return model.getDb().findGamesByGenre(genre);
+	}
+	public List<Game> findGamesByReleaseDate(String sortBy) {
+		return model.getDb().findGamesByReleaseDate(sortBy);
+	}
+	public List<Credentials> findCredentialsByUsername(String username) {
+		return model.getDb().findCredentialsByUsername(username);
+	}
+	public List<Game> findGamesByNameWithoutFullName(String name) {
+		return model.getDb().findGamesByNameWithoutFullName(name);
+	}
+	
+	
+}

@@ -1,0 +1,24 @@
+package GameReview;
+
+import java.util.List;
+
+public class GameReviewController {
+	GameReviewModel model;
+	
+	public GameReviewController() {
+		 model = new GameReviewModel();
+	}
+	
+	public GameReviewModel getModel() {
+		return model;
+	}
+	
+	public List<Game> getAllGames() {
+		return model.getDb().findAllGames();
+	}
+	
+	public List<Game> getGame(String game){
+		return model.getDb().findGameByName(name);
+	}
+	
+}

@@ -1,0 +1,59 @@
+package GameReviewClassTest;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import GameReview.Game;
+
+
+public class GameTest {
+	private Game game1 = new Game("Call of Duty", "ACTION", "First person shooter game", "October 29, 2003");
+	
+
+	@Test
+	public void gameGetNameTest() {
+		assertTrue(game1.getName() == "Call of Duty");
+	}
+	
+	@Test
+	public void gameGetGenreTest() {
+		assertTrue(game1.getGenre() == Genre.ACTION);
+	}
+	
+	@Test
+	public void gameGetDescriptionTest() {
+		assertTrue(game1.getDescription() == "First person shooter game");
+	}
+	
+	@Test
+	public void gameGetReleasedateTest() {
+		assertTrue(game1.getReleasedate() == "October 29, 2003");
+	}
+	
+	@Test
+	public void gameSetNameTest() {
+		game1.setName("Flappy Bird");
+		assertTrue(game1.getName() == "Flappy Bird");
+	}
+	
+	@Test
+	public void gameSetGenreTest() {
+		game1.setGenre(Genre.STRATEGY);
+		assertTrue(game1.getGenre() == Genre.STRATEGY);
+	}
+	
+	@Test
+	public void gameSetDescriptionTest() {
+		game1.setDescription("A really really annoying game");
+		assertTrue(game1.getDescription() == "A really really annoying game");
+	}
+	
+	@Test
+	public void gameSetReleasedateTest() {
+		game1.setReleasedate("May 24, 2013");
+		assertTrue(game1.getReleasedate() == "May 24, 2013");
+	}
+	
+	
+}

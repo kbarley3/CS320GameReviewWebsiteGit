@@ -1,0 +1,62 @@
+package GameReview;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GameReviewController {
+	GameReviewModel model;
+	
+	public GameReviewController() {
+		 model = new GameReviewModel();
+	}
+	
+	public GameReviewModel getModel() {
+		return model;
+	}
+	
+	public List<Game> findAllGames() {
+		return model.getDb().findAllGames();
+	}
+	
+	public List<Game> findGameByName(String game){
+		return model.getDb().findGameByName(game);
+	}
+	
+	public List<Game> findGamesByGenre(String genre) {
+		return model.getDb().findGamesByGenre(genre);
+	}
+	public List<Game> findGamesByReleaseDate(String sortBy) {
+		return model.getDb().findGamesByReleaseDate(sortBy);
+	}
+	public List<Credentials> findCredentialsByUsername(String username) {
+		return model.getDb().findCredentialsByUsername(username);
+	}
+	public List<Game> findGamesByNameWithoutFullName(String name) {
+		return model.getDb().findGamesByNameWithoutFullName(name);
+	}
+	public List<Credentials> findAllCredentials() {
+		return model.getDb().findAllCredentials();
+	}
+	public Integer insertCredentialsIntoCredentialsTable(String username, String password) {
+		return model.getDb().insertCredentialsIntoCredentialTable(username, password);
+	}
+	public boolean doesUsernameAlreadyExist(String username) {
+		List<Credentials> credentialList = new ArrayList<Credentials>();
+		credentialList = model.getDb().findAllCredentials();
+		for (int i = 0; i<credentialList.size(); i++) {
+			if (username.equals(credentialList.get(i).getUsername())) {
+				return true;
+			}
+		}
+	}
+	
+	public boolean validateCredentials(String pw, String un) {
+		String pwToMatch = model.getDb().findCredentialsByUsername(un).get(0).getPassword();
+		if (pw.equals(pwToMatch)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}

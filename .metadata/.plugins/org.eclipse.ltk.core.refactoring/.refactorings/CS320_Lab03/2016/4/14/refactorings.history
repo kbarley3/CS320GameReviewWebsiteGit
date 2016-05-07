@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;games.html&apos; to &apos;war&apos;" description="Move &apos;games.html&apos; to &apos;war&apos;" destination="war" element1="war/WEB-INF/games.html" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1459479227907" updateReferences="true"/>
+</session>

@@ -1,0 +1,39 @@
+package edu.ycp.cs320.lab03.servlet;
+
+import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import edu.ycp.cs320.lab03.model.GameReviewLoginModel;
+
+
+public class GameReviewGamesServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("GameReviewGames get method");
+		req.getRequestDispatcher("/_view/gameReviewGames.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		Enumeration hiddenName = req.getAttributeNames();
+		while (hiddenName.hasMoreElements()) {
+			System.out.println(hiddenName.nextElement());
+		}
+		String gameName =  (String) req.getAttribute("Rocket League");
+		System.out.println(gameName);
+		
+		// Forward to view to render the result HTML document
+		req.getRequestDispatcher("/_view/gameReviewGames.jsp").forward(req, resp);
+	}
+
+	
+}

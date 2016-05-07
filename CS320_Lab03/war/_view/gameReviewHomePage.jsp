@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Reviews Home</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  
+  <style type="text/css">
+  nav {
+    line-height: 20px;
+    background-color:#0066ff;
+    height:60px;
+    width:100%;
+    <!--float:left;-->
+    padding-left:5px; 
+	padding-right:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: right
+	<!--color: gray;-->
+  }
+  body{
+  	background-color:lightgrey;
+  }
+  img {
+    width: 300px;
+    height: auto;
+  }
+  
+  </style>
+  
+</head>
+<body>
+
+
+  <div id="wrapper">
+    <header>
+    </header>
+    <nav>
+	
+	
+		<br>
+		<a style="text-decoration:none; text-align:left; font-size:xx-large; color: white;" href="gameReviewHomePage">Game Reviews</a>		
+		
+		
+		<a style="float:right; text-align:left; font-size:x-large; color: white;" >${username}</a>
+		
+		<form action="${pageContext.servletContext.contextPath}/gameReviewLoginPage" method="get">
+			<input style="float:right;" type="Submit" name="submit" value="Logout">
+		</form>
+		
+		
+		
+		<form action="${pageContext.servletContext.contextPath}/gameReviewHomePage" method="post">
+		<button style="float:right; margin-right: 5px" type="submit">&#128269</button>	
+		<input style="float:right" type="text" name="search" id="search" tabindex="1" autocomplete="on" class="formtext">
+		<select name = "GenreSearch" style="float:right" >
+		  <option selected disabled>Select Genre</option>
+		  <option value="All">All</option>
+		  <option value="Action">Action</option>
+		  <option value="Adventure">Adventure</option>
+		  <option value="Role-playing">Role-playing</option>
+		  <option value="Simulation">Simulation</option>
+		  <option value="Strategy">Strategy</option>
+		  <option value="Sports">Sports</option>
+		</select>
+		<select name = "ByReleaseDate" style="float:right" >
+		  <option selected disabled>Select Sort By</option>
+		  <option value="Oldest">Oldest To Newest</option>
+		  <option value="Newest">Newest To Oldest</option>
+		 </select>
+		</form>
+		
+		<!--  <a href="actiongames.html" target="_parent"><button style="margin-left:20px; background-color: #555555; color: white; padding: 15px 20px; border: none;" >Action</button></a> -->
+		<!--  <a href="adventuregames.html" target="_parent"><button style="background-color: #555555; color: white; padding: 15px 20px; border: none;" >Adventure</button></a> -->
+		<!--  <a href="role-playinggames.html" target="_parent"><button style="background-color: #555555; color: white; padding: 15px 20px; border: none;" >Role-playing</button></a> -->
+		<!--  <a href="simulationgames.html" target="_parent"><button style="background-color: #555555; color: white; padding: 15px 20px; border: none;" >Simulation</button></a> -->
+		<!--  <a href="strategygames.html" target="_parent"><button style="background-color: #555555; color: white; padding: 15px 20px; border: none;" >Strategy</button></a> -->
+		<!--  <a href="sportsgames.html" target="_parent"><button style="background-color: #555555; color: white; padding: 15px 20px; border: none;" >Sports</button></a> -->
+		
+		
+    </nav>
+    
+    
+   
+    <section id="content">
+      <article>
+      
+      
+        <br>
+		<br>
+
+	  	<c:forEach items="${games}" var="currentGame">
+			<a href="gameReviewGames/${currentGame.name}"><img value=${currentGame.name} src=${currentGame.coverPictureUrl}></a>
+		</c:forEach>
+		
+	  	<br>
+	 	
+
+		
+		</center>
+      </article>
+    </section>
+    
+    <aside>
+<!--       Sidebar -->
+    </aside>
+    <footer>
+<!--       Footer -->
+    </footer>
+  </div>
+     
+</body>
+</html>

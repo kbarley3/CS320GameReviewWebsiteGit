@@ -1,0 +1,18 @@
+package GameReview;
+
+public class GameReviewController {
+	GameReviewModel model;
+	
+	public GameReviewController() {
+		 model = new GameReviewModel();
+	}
+	
+	public GameReviewModel getModel() {
+		return model;
+	}
+	
+	public findAllGames(){
+		
+	}
+	
+}

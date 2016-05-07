@@ -1,0 +1,198 @@
+package GameReviewClassTest;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import GameReview.Credentials;
+import GameReview.Game;
+import GameReview.GameReviewController;
+import gamesdb.DatabaseProvider;
+import gamesdb.DerbyDatabase;
+import gamesdb.IDatabase;
+
+public class DerbyDatabaseTest {
+
+
+
+	
+	ArrayList<Game> games = null;
+	List<Game> gameList = null;
+	List<Credentials> credentialsList = null;
+	private GameReviewController controller = new GameReviewController();
+
+	@After
+	public void tearDown() throws Exception {
+	}
+	
+	
+	@Test
+	public void findGameByName() {
+		System.out.println("\n*** Testing findGameByName ***");		//Add method to test for games containg phrase "LIKE 'draw'" using wildcard "%...%"
+		String name = "Draw Rider";
+		gameList = controller.findGameByName(name);
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found with name <" + name + ">");
+			fail("No game with name <" + name + "> returned from Library DB");
+		}
+		
+		else {
+			System.out.println(gameList.get(0).getName());
+		}
+	}
+	@Test
+	public void findAllGames() {
+		System.out.println("\n*** Testing findAllGames ***");
+		gameList = controller.findAllGames();
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found!");
+			fail("No games were returned from Library DB");
+		}
+		
+		else {
+			for (int i = 0; i<gameList.size(); i++) {
+				System.out.println(gameList.get(i).getName());
+			}
+		
+		}
+	}
+	
+	@Test
+	public void findGamesByReleaseDateOldestToNewest() {
+		System.out.println("\n*** Testing findGamesByReleaseDateOldestToNewest ***");
+		gameList = controller.findGamesByReleaseDate("Oldest");
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found!");
+			fail("No games were returned from Library DB");
+		}
+		
+		else {
+			for (int i = 0; i<gameList.size(); i++) {
+				System.out.println(gameList.get(i).getReleasedate());
+			}
+		
+		}
+	}
+	
+	@Test
+	public void findGamesByReleaseDateNewestToOldest() {
+		System.out.println("\n*** Testing findGamesByReleaseDateNewestToOldest ***");
+		gameList = controller.findGamesByReleaseDate("Newest");
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found!");
+			fail("No games were returned from Library DB");
+		}
+		
+		else {
+			for (int i = 0; i<gameList.size(); i++) {
+				System.out.println(gameList.get(i).getReleasedate());
+			}
+		
+		}
+	}
+	
+	@Test
+	public void findGamesByGenre() {
+		System.out.println("\n*** Testing findGamesByGenre ***");
+		gameList = controller.findGamesByGenre("Racing");
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found!");
+			fail("No games were returned from Library DB");
+		}
+		
+		else {
+			for (int i = 0; i<gameList.size(); i++) {
+				System.out.println(gameList.get(i).getName());
+			}
+		
+		}
+	}
+
+	@Test
+	public void findCredentialByUsername() {
+		System.out.println("\n*** Testing findCredentialsByUsername ***");
+		String username = "Admin";
+		credentialsList = controller.findCredentialsByUsername(username);
+		if (credentialsList.isEmpty()) {
+			System.out.println("No credentials were found!");
+			fail("No credentials were returned from Library DB");
+		}
+		
+		else {
+			for (int i =0; i<credentialsList.size(); i++) {
+				System.out.println(credentialsList.get(i).getUsername());
+				System.out.println(credentialsList.get(i).getPassword());
+			}
+		}
+	}
+	
+	@Test
+	public void findGameByNameWithoutFullName() {
+		System.out.println("\n*** Testing findGameByNameWithoutFullName ***");		
+		String name = "Ra";
+		gameList = controller.findGamesByNameWithoutFullName(name);
+		if (gameList.isEmpty()) {
+			System.out.println("No games were found with name <" + name + ">");
+			fail("No game with name <" + name + "> returned from Library DB");
+		}
+		
+		else {
+			for (int i=0; i<gameList.size(); i++) {
+				System.out.println(gameList.get(i).getName());
+			}
+		}
+	}
+	
+	@Test
+	public void validateCredentials() {
+		System.out.println("\n*** Testing validateCredentials ***");
+		String username = "Admin";
+		String password = "Admin";
+		Boolean validOrNot = controller.validateCredentials(password, username);
+		if (validOrNot == true) {
+			System.out.println("The credentials username:" + username + " password:" + password + " were valid");
+		}
+		else {
+			System.out.println("The credentials were invalid");
+			fail("Wrong Credentials");
+		}
+		System.out.println("\n*** Testing validateCredentials for wrong password ***");
+		
+		String username2 = "Admin";
+		String password2 = "wrongPassword";
+		Boolean validOrNot2 = controller.validateCredentials(password2, username2);
+		if (validOrNot2 == true) {
+			System.out.println("The credentials username:" + username + " password:" + password + " were valid");
+		}
+		else {
+			
+			System.out.println("The credentials were invalid");
+		}
+	}
+	
+	@Test
+	public void insertNewCredentials() {
+		System.out.println("\n*** Testing insertNewCredentials ***");
+		String username = "NewCred";
+		String password = "password";
+		
+	}
+	
+	@Test
+	public void findAllCredentials() {
+		System.out.println("\n*** Testing findAllCredentials ***");
+		credentialsList = controller.findAllCredentials();
+		for (int i = 0; i<credentialsList.size(); i++) {
+			System.out.println(credentialsList.get(i).getUsername());
+			System.out.println(credentialsList.get(i).getPassword());
+		}
+	}
+}

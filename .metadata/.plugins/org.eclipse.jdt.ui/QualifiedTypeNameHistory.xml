@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.ycp.cs320.lab03.controller.GameReviewLoginController"/>
+<fullyQualifiedTypeName name="GameReview.Review"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.TreeMap"/>
+<fullyQualifiedTypeName name="GameReview.Account"/>
+<fullyQualifiedTypeName name="edu.ycp.cs320.lab03.model.GameReviewLoginModel"/>
+<fullyQualifiedTypeName name="GameReview.Genre"/>
+<fullyQualifiedTypeName name="gamesdb.FakeDatabase"/>
+<fullyQualifiedTypeName name="gamesdb.IDatabase"/>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="org.junit.AfterClass"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="gamesdb.DatabaseProvider"/>
+<fullyQualifiedTypeName name="gamesdb.DerbyDatabase"/>
+<fullyQualifiedTypeName name="GameReview.Credentials"/>
+<fullyQualifiedTypeName name="GameReview.GameReviewModel"/>
+<fullyQualifiedTypeName name="GameReview.GameReviewController"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.text.ParseException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="GameReview.Game"/>
+</qualifiedTypeNameHistroy>
